@@ -34,7 +34,9 @@ export default function RootLayout({
         <ScrollObserver />
 
         {/* Master Site Guard: Handles Normal Mode vs Administrator Lockdown (404 / Developer Showcase) */}
-        <SiteGuard>{children}</SiteGuard>
+        <div className="relative z-10 min-h-screen">
+          <SiteGuard>{children}</SiteGuard>
+        </div>
       </body>
     </html>
   );

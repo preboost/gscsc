@@ -97,7 +97,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   }
 
   return (
-    <div className="min-h-screen flex" style={{ background: "#030712" }}>
+    <div className="min-h-screen flex relative z-10" style={{ background: "#030712" }}>
       {/* Sidebar Desktop */}
       <aside
         className="hidden md:flex flex-col w-64 flex-shrink-0 border-r border-cyan-500/15"
@@ -225,7 +225,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </header>
 
         {/* Page Content */}
-        <main className="flex-1 overflow-y-auto">
+        <main className="flex-1 overflow-y-auto bg-[#030712]/95 min-h-screen">
           {children}
         </main>
       </div>

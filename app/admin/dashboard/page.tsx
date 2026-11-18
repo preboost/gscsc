@@ -105,7 +105,10 @@ export default function AdminDashboardPage() {
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto space-y-6">
+    <div className="p-4 sm:p-8 max-w-6xl mx-auto space-y-6 relative z-10">
+      {/* ── TOP ADMINISTRATOR LOCKDOWN CONTROL (ONLY FOR ADMINISTRATOR) ── */}
+      <AdminLockdownToggle />
+
       {/* Welcome Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
@@ -118,9 +121,6 @@ export default function AdminDashboardPage() {
         </div>
 
         <div className="flex items-center gap-3">
-          {/* Administrator Lockdown Toggle (Only visible to Administrator) */}
-          <AdminLockdownToggle />
-
           {/* DB Status Badge */}
           <span
             className={`flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-semibold ${
