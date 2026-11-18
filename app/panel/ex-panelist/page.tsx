@@ -216,13 +216,16 @@ export default function ExPanelistPage() {
 
         {/* Action Button */}
         <div className="flex flex-wrap items-center justify-center gap-3">
-          <button
-            onClick={() => setShowApplyModal(true)}
-            className="btn-primary text-xs sm:text-sm font-bold flex items-center gap-2 shadow-[0_0_25px_rgba(56,189,248,0.4)] py-2.5 px-6"
+          <a
+            href="https://forms.gle/6VDp5eRc6YbgdLUT7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary text-xs sm:text-sm font-bold flex items-center gap-2 shadow-[0_0_25px_rgba(56,189,248,0.4)] py-2.5 px-6 hover:brightness-110 transition-all cursor-pointer"
           >
             <UserPlus size={16} />
             <span>Apply / Register as Alumni</span>
-          </button>
+            <ExternalLink size={14} className="opacity-80" />
+          </a>
           <Link
             href="/panel/executive"
             className="btn-secondary text-xs sm:text-sm font-semibold flex items-center gap-1.5 py-2.5 px-5"

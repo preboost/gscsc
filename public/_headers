@@ -1,3 +1,4 @@
+# Global Security & Performance Headers
 /*
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
@@ -6,3 +7,36 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   Cross-Origin-Opener-Policy: same-origin-allow-popups
+
+# Next.js Static JS & CSS Chunks (Immutable 1-Year Cache for Ultra Speed)
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Static Media & Images (Fast CDN & Browser Edge Cache)
+/events/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/orbitfall-protocol.mp4
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/*.png
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/*.jpg
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/*.jpeg
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/*.ico
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/*.svg
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/*.webmanifest
+  Cache-Control: public, max-age=86400, stale-while-revalidate=3600
+
+# HTML Pages (Always fresh, fast edge revalidation)
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate

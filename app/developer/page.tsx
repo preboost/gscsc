@@ -145,46 +145,6 @@ export default function DeveloperPage() {
         </div>
       </div>
 
-      {/* ── Lead Developer Spotlight Card ── */}
-      <div className="mb-12 rounded-3xl border border-cyan-400/30 bg-gradient-to-br from-slate-900/90 via-indigo-950/30 to-slate-950/90 backdrop-blur-2xl p-6 sm:p-8 shadow-xl">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-4 sm:gap-5 w-full md:w-auto">
-            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-cyan-500 to-blue-600 p-0.5 shadow-[0_0_25px_rgba(56,189,248,0.4)] flex-shrink-0">
-              <div className="w-full h-full bg-slate-950 rounded-2xl flex items-center justify-center text-cyan-400">
-                <Cpu size={32} />
-              </div>
-            </div>
-            <div>
-              <div className="flex items-center gap-2 flex-wrap mb-1">
-                <span className="text-[10px] font-bold font-mono tracking-widest text-cyan-400 uppercase px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-400/30">
-                  LEAD DEVELOPER
-                </span>
-                <span className="text-[10px] font-mono text-emerald-400 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  Full-Stack Architect
-                </span>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-black text-white">
-                Junaed Islam Jim
-              </h3>
-              <p className="text-slate-400 text-xs sm:text-sm mt-0.5">
-                Lead Developer &amp; Digital Solutions Architect &bull; PreBOOST MARKETING
-              </p>
-            </div>
-          </div>
-
-          <a
-            href="https://junaedislamjim.pages.dev/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white text-xs sm:text-sm font-bold shadow-lg shadow-sky-500/25 hover:shadow-sky-500/40 transform hover:scale-105 transition-all"
-          >
-            <span>Visit Developer Portfolio</span>
-            <ExternalLink size={15} />
-          </a>
-        </div>
-      </div>
-
       {/* ── Connect with PreBOOST MARKETING Section ── */}
       <div className="rounded-3xl border border-sky-500/20 bg-slate-950/60 backdrop-blur-2xl p-6 sm:p-10 shadow-2xl">
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
@@ -194,8 +154,20 @@ export default function DeveloperPage() {
           <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-2">
             Connect with PreBOOST MARKETING
           </h2>
-          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-2">
             For website development, digital solutions, business inquiries, or collaboration opportunities, feel free to reach out to us through our official channels.
+          </p>
+          <p className="text-xs text-slate-400">
+            Our lead developer &bull;{" "}
+            <a
+              href="https://junaedislamjim.pages.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-cyan-400 hover:text-cyan-300 font-semibold underline decoration-cyan-500/40 hover:decoration-cyan-300 transition-colors inline-flex items-center gap-1"
+            >
+              junaedislamjim.pages.dev
+              <ExternalLink size={11} />
+            </a>
           </p>
         </div>
 
