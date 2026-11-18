@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import CosmicBackground from "@/components/CosmicBackground";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import ScrollObserver from "@/components/ScrollObserver";
 import SciFiCursorVFX from "@/components/SciFiCursorVFX";
+import SiteGuard from "@/components/SiteGuard";
 
 export const metadata: Metadata = {
   title: "GSCSC – Govt. Science College Science Club",
@@ -34,14 +33,8 @@ export default function RootLayout({
         <SciFiCursorVFX />
         <ScrollObserver />
 
-        {/* Dynamic Navigation Bar */}
-        <Navbar />
-
-        {/* Page Content */}
-        <div className="relative z-10">{children}</div>
-
-        {/* Global Glass Footer */}
-        <Footer />
+        {/* Master Site Guard: Handles Normal Mode vs Administrator Lockdown (404 / Developer Showcase) */}
+        <SiteGuard>{children}</SiteGuard>
       </body>
     </html>
   );

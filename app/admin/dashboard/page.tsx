@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import AdminLockdownToggle from "@/components/AdminLockdownToggle";
 import { adminGetDashboardStats } from "@/lib/adminSupabase";
 import {
   MessageSquare,
@@ -117,6 +118,9 @@ export default function AdminDashboardPage() {
         </div>
 
         <div className="flex items-center gap-3">
+          {/* Administrator Lockdown Toggle (Only visible to Administrator) */}
+          <AdminLockdownToggle />
+
           {/* DB Status Badge */}
           <span
             className={`flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-semibold ${
