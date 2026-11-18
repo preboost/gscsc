@@ -171,6 +171,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/developer" className="text-cyan-400 font-semibold hover:text-cyan-300 transition-colors">
+                  Developer &amp; Collaboration
+                </Link>
+              </li>
+              <li>
                 <Link href="/admin" className="text-slate-400 hover:text-white transition-colors text-[0.75rem]">
                   Admin Portal
                 </Link>
@@ -243,15 +248,13 @@ export default function Footer() {
             &copy; 1981 &ndash; 2026 Govt. Science College Science Club (GSCSC). All Rights Reserved.
           </p>
           <p className="text-[11px] text-slate-500">
-            Developed by{" "}
-            <a
-              href="https://www.facebook.com/PreboostMarketing"
-              target="_blank"
-              rel="noopener noreferrer"
+            Developed &amp; Maintained in collaboration with{" "}
+            <Link
+              href="/developer"
               className="text-cyan-400 hover:text-cyan-300 font-semibold underline decoration-cyan-500/40 hover:decoration-cyan-300 transition-colors"
             >
               PreBOOST MARKETING
-            </a>
+            </Link>
           </p>
         </div>
       </div>
