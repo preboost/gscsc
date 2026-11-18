@@ -1,0 +1,133 @@
+export interface ExecutiveMember {
+  id: number;
+  name: string;
+  role: string;
+  department: string;
+  session: string;
+  photo?: string;
+  phone?: string;
+  email?: string;
+  blood?: string;
+  bio?: string;
+  display_order: number;
+}
+
+export const DEFAULT_EXECUTIVES: ExecutiveMember[] = [
+  {
+    id: 1,
+    name: "Arif Hossain",
+    role: "President",
+    department: "Central Executive Committee",
+    session: "Session 25-26",
+    photo: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=800",
+    phone: "01712000010",
+    email: "president.gscsc@gmail.com",
+    blood: "B+",
+    bio: "Chief executive leading club governance, national festival planning, and collegiate research partnerships.",
+    display_order: 1,
+  },
+  {
+    id: 2,
+    name: "Nusrat Jahan",
+    role: "General Secretary",
+    department: "Administration Wing",
+    session: "Session 25-26",
+    photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800",
+    phone: "01712000011",
+    email: "gs.gscsc@gmail.com",
+    blood: "A+",
+    bio: "Managing overall club administrative workflow, inter-wing coordination, and member relations.",
+    display_order: 2,
+  },
+  {
+    id: 3,
+    name: "Rafid Karim",
+    role: "Treasurer",
+    department: "Finance & Accounts Wing",
+    session: "Session 25-26",
+    photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=800",
+    phone: "01712000012",
+    email: "treasurer.gscsc@gmail.com",
+    blood: "O+",
+    bio: "Supervising club financial audits, budget allocations for rocketry tests, and sponsor grants.",
+    display_order: 3,
+  },
+  {
+    id: 4,
+    name: "Lamia Islam",
+    role: "Joint Secretary (Admin)",
+    department: "Internal Operations",
+    session: "Session 25-26",
+    photo: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=800",
+    phone: "01712000013",
+    email: "js.admin.gscsc@gmail.com",
+    blood: "AB+",
+    bio: "Coordinating internal departmental operations and general executive training bootcamps.",
+    display_order: 4,
+  },
+  {
+    id: 5,
+    name: "Kazi Al-Amin",
+    role: "Joint Secretary (Events)",
+    department: "Festival Affairs & Logistics",
+    session: "Session 25-26",
+    photo: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=800",
+    phone: "01712000014",
+    email: "js.events.gscsc@gmail.com",
+    blood: "B+",
+    bio: "Lead logistical planner for the annual National Science & Technology Festival.",
+    display_order: 5,
+  },
+  {
+    id: 6,
+    name: "Shahriar Nafis",
+    role: "Head of IT & Automation",
+    department: "IT & Software Wing",
+    session: "Session 25-26",
+    photo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800",
+    phone: "01712000015",
+    email: "it.head.gscsc@gmail.com",
+    blood: "O+",
+    bio: "Lead developer managing cloud servers, automated registration systems, and digital portals.",
+    display_order: 6,
+  },
+  {
+    id: 7,
+    name: "Tanvir Ahmed",
+    role: "Head of Rocketry & Robotics",
+    department: "Engineering Division (GSC Falcon)",
+    session: "Session 25-26",
+    photo: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&q=80&w=800",
+    phone: "01712000016",
+    email: "falcon.head.gscsc@gmail.com",
+    blood: "A+",
+    bio: "Lead avionics & propulsion engineer for Project Orbitfall and sounding rocket flight tests.",
+    display_order: 7,
+  },
+  {
+    id: 8,
+    name: "Farida Haque",
+    role: "Head of Press & Media",
+    department: "Publications & Visual Media",
+    session: "Session 25-26",
+    photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800",
+    phone: "01712000017",
+    email: "media.gscsc@gmail.com",
+    blood: "B+",
+    bio: "Chief editorial designer for annual club magazine, research digests, and photo coverage.",
+    display_order: 8,
+  },
+  {
+    id: 9,
+    name: "Mehedi Hasan",
+    role: "Head of Olympiad Circuit",
+    department: "Academic Wings & Training",
+    session: "Session 25-26",
+    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800",
+    phone: "01712000018",
+    email: "olympiad.gscsc@gmail.com",
+    blood: "AB-",
+    bio: "Head coach for national math, physics, informatics, and astrophysics Olympiad squads.",
+    display_order: 9,
+  },
+];
