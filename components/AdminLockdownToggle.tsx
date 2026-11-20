@@ -10,7 +10,11 @@ import {
 } from "@/lib/siteMode";
 import { ShieldAlert, ShieldCheck, Power, AlertTriangle, CheckCircle2 } from "lucide-react";
 
-export default function AdminLockdownToggle() {
+interface AdminLockdownToggleProps {
+  compact?: boolean;
+}
+
+export default function AdminLockdownToggle({ compact = false }: AdminLockdownToggleProps) {
   const [currentUser, setCurrentUser] = useState<AdminUser | null>(null);
   const [lockdown, setLockdown] = useState<boolean>(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -43,7 +47,8 @@ export default function AdminLockdownToggle() {
   // MANDATORY SECURITY RULE:
   // "administator er jonno only eikhane on/ off button deo just for administrator.
   // normal admin or stuff jeno dekha nah pay button ta !"
-  if (currentUser?.role !== "administrator") {
+  // Staff accounts ("staff" or "gscscstuff") cannot see this button.
+  if (currentUser?.role === "staff" || currentUser?.username?.toLowerCase() === "gscscstuff") {
     return null;
   }
 
@@ -62,6 +67,68 @@ export default function AdminLockdownToggle() {
     }, 4500);
   };
 
+  // Compact Header Version (For top bar next to "DB: Supabase Connected")
+  if (compact) {
+    return (
+      <div className="relative inline-flex items-center">
+        {toastMessage && (
+          <div
+            className={`fixed top-4 right-4 z-50 p-3 rounded-xl border text-xs font-semibold flex items-center gap-2 shadow-2xl animate-fadeIn ${
+              lockdown
+                ? "bg-rose-950/90 border-rose-500 text-rose-200"
+                : "bg-emerald-950/90 border-emerald-500 text-emerald-200"
+            }`}
+          >
+            {lockdown ? <AlertTriangle size={15} /> : <CheckCircle2 size={15} />}
+            <span>{toastMessage}</span>
+          </div>
+        )}
+
+        <div
+          className={`flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all ${
+            lockdown
+              ? "bg-rose-950/70 border-rose-500 shadow-[0_0_15px_rgba(244,63,94,0.4)]"
+              : "bg-slate-900/90 border-cyan-500/30"
+          }`}
+          title="Administrator Site Lockdown Mode (ON = 404 all pages, homepage shows developer)"
+        >
+          <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-cyan-300 hidden sm:inline">
+            Lockdown
+          </span>
+
+          <button
+            type="button"
+            role="switch"
+            aria-checked={lockdown}
+            onClick={() => handleToggle(!lockdown)}
+            className={`relative inline-flex h-6 w-12 items-center rounded-full transition-all focus:outline-none cursor-pointer p-0.5 ${
+              lockdown
+                ? "bg-rose-600 shadow-[0_0_12px_rgba(244,63,94,0.8)]"
+                : "bg-slate-700 hover:bg-slate-600"
+            }`}
+          >
+            <span
+              className={`inline-block h-5 w-5 transform rounded-full bg-white shadow-md transition-transform duration-200 ease-in-out flex items-center justify-center ${
+                lockdown ? "translate-x-6" : "translate-x-0"
+              }`}
+            >
+              <Power size={11} className={lockdown ? "text-rose-600" : "text-slate-600"} />
+            </span>
+          </button>
+
+          <span
+            className={`text-xs font-black font-mono tracking-wider min-w-[26px] text-center ${
+              lockdown ? "text-rose-400 animate-pulse" : "text-slate-400"
+            }`}
+          >
+            {lockdown ? "ON" : "OFF"}
+          </span>
+        </div>
+      </div>
+    );
+  }
+
+  // Full Banner Version
   return (
     <div className="w-full mb-6">
       {/* Toast Feedback */}

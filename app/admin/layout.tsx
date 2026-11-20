@@ -34,7 +34,8 @@ import {
   Microscope,
   FileText,
   Phone,
-  Images
+  Images,
+  Globe
 } from "lucide-react";
 
 const NAV_ITEMS = [
@@ -50,6 +51,7 @@ const NAV_ITEMS = [
   { href: "/admin/workshops", label: "Workshops", icon: FlaskConical },
   { href: "/admin/projects", label: "Research & Projects", icon: Microscope },
   { href: "/admin/publications", label: "Publications", icon: FileText },
+  { href: "/admin/footer", label: "Footer Settings", icon: Globe },
   { href: "/admin/contact-info", label: "Contact Info", icon: Phone },
   { href: "/admin/executives", label: "Executive Committee", icon: Shield },
   { href: "/admin/moderators", label: "Club Moderators", icon: Award },

@@ -50,6 +50,7 @@ const QUICK_LINKS = [
   { href: "/admin/projects", label: "Research & Projects", icon: Microscope, color: "from-blue-500/20 to-indigo-500/20", border: "border-blue-400/40", text: "text-blue-300" },
   { href: "/admin/falcon", label: "GSC Falcon Rocketry", icon: Rocket, color: "from-rose-500/20 to-red-500/20", border: "border-rose-400/40", text: "text-rose-400" },
   { href: "/admin/publications", label: "Publications & Mag", icon: FileText, color: "from-violet-500/20 to-purple-500/20", border: "border-violet-400/40", text: "text-violet-300" },
+  { href: "/admin/footer", label: "Website Footer Settings", icon: Globe, color: "from-cyan-500/20 to-teal-500/20", border: "border-cyan-400/40", text: "text-cyan-300" },
   { href: "/admin/contact-info", label: "Contact Info & Socials", icon: Phone, color: "from-amber-500/20 to-yellow-500/20", border: "border-amber-400/40", text: "text-amber-300" },
   { href: "/admin/executives", label: "Executive Committee", icon: Shield, color: "from-rose-500/20 to-pink-500/20", border: "border-rose-500/30", text: "text-rose-400", stat: "executives" },
   { href: "/admin/moderators", label: "Club Moderators", icon: Award, color: "from-indigo-500/20 to-purple-500/20", border: "border-indigo-500/30", text: "text-indigo-400", stat: "moderators" },
@@ -112,7 +113,7 @@ export default function AdminDashboardPage() {
       {/* Welcome Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight flex items-center gap-3">
             Admin Dashboard
           </h1>
           <p className="text-white/50 text-xs mt-1">
@@ -120,7 +121,10 @@ export default function AdminDashboardPage() {
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-wrap">
+          {/* Top Administrator Lockdown Toggle (Compact) */}
+          <AdminLockdownToggle compact />
+
           {/* DB Status Badge */}
           <span
             className={`flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-semibold ${
