@@ -2,7 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { Phone, Mail, MapPin, Clock, Globe, Save, Check } from "lucide-react";
-import { getStoredContactSettings, saveStoredContactSettings, DEFAULT_CONTACT_SETTINGS, ContactSettings } from "@/lib/contact-data";
+import {
+  getStoredContactSettings,
+  saveStoredContactSettings,
+  fetchCloudContactSettings,
+  DEFAULT_CONTACT_SETTINGS,
+  ContactSettings,
+} from "@/lib/contact-data";
 
 export default function AdminContactInfoCMS() {
   const [form, setForm] = useState<ContactSettings>(DEFAULT_CONTACT_SETTINGS);
@@ -10,6 +16,9 @@ export default function AdminContactInfoCMS() {
 
   useEffect(() => {
     setForm(getStoredContactSettings());
+    fetchCloudContactSettings().then((res) => {
+      if (res && res.phone1) setForm(res);
+    });
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -151,6 +160,25 @@ export default function AdminContactInfoCMS() {
           </div>
         </div>
 
+        {/* Footer & Brand Motto */}
+        <div className="rounded-3xl border border-cyan-500/20 bg-slate-900/60 p-6 space-y-4 shadow-xl">
+          <h2 className="text-sm font-bold text-cyan-400 flex items-center gap-2 uppercase tracking-wider font-mono">
+            <Globe size={16} /> Website Footer &amp; Tagline
+          </h2>
+          <div>
+            <label className="text-slate-300 text-xs mb-1 block">Club Tagline / Footer Motto</label>
+            <input
+              type="text"
+              name="tagline"
+              value={form.tagline || ""}
+              onChange={handleChange}
+              placeholder="Where curiosity meets innovation since 1981."
+              className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white text-xs outline-none focus:border-cyan-400"
+            />
+            <p className="text-[11px] text-slate-500 mt-1">This text appears directly beneath the club name in the website footer across all pages.</p>
+          </div>
+        </div>
+
         {/* Social Media Links */}
         <div className="rounded-3xl border border-cyan-500/20 bg-slate-900/60 p-6 space-y-4 shadow-xl">
           <h2 className="text-sm font-bold text-cyan-400 flex items-center gap-2 uppercase tracking-wider font-mono">
@@ -176,6 +204,28 @@ export default function AdminContactInfoCMS() {
                 value={form.facebookGroup}
                 onChange={handleChange}
                 placeholder="https://facebook.com/groups/..."
+                className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white text-xs outline-none focus:border-cyan-400"
+              />
+            </div>
+            <div>
+              <label className="text-slate-300 text-xs mb-1 block">Instagram URL</label>
+              <input
+                type="text"
+                name="instagram"
+                value={form.instagram || ""}
+                onChange={handleChange}
+                placeholder="https://instagram.com/gscsc.official"
+                className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white text-xs outline-none focus:border-cyan-400"
+              />
+            </div>
+            <div>
+              <label className="text-slate-300 text-xs mb-1 block">YouTube Channel URL</label>
+              <input
+                type="text"
+                name="youtube"
+                value={form.youtube || ""}
+                onChange={handleChange}
+                placeholder="https://youtube.com/@gscsc.official"
                 className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white text-xs outline-none focus:border-cyan-400"
               />
             </div>

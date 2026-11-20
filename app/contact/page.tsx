@@ -13,7 +13,12 @@ import {
   ArrowRight,
   Send,
 } from "lucide-react";
-import { getStoredContactSettings, DEFAULT_CONTACT_SETTINGS, ContactSettings } from "@/lib/contact-data";
+import {
+  getStoredContactSettings,
+  fetchCloudContactSettings,
+  DEFAULT_CONTACT_SETTINGS,
+  ContactSettings,
+} from "@/lib/contact-data";
 
 export default function ContactPage() {
   const [contactSettings, setContactSettings] = useState<ContactSettings>(DEFAULT_CONTACT_SETTINGS);
@@ -23,6 +28,9 @@ export default function ContactPage() {
       setContactSettings(getStoredContactSettings());
     };
     load();
+    fetchCloudContactSettings().then((res) => {
+      if (res && res.phone1) setContactSettings(res);
+    });
     window.addEventListener("gscsc_contact_settings_updated", load);
     window.addEventListener("storage", load);
     return () => {
